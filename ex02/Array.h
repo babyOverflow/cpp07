@@ -47,7 +47,7 @@ public:
 			return arr[idx];
 	}
 
-	unsigned int size()
+	unsigned int size() const
 	{
 		return mReserved;
 	}
