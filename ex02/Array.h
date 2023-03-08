@@ -7,7 +7,6 @@ public:
 	Array()
 		: arr(new T[0]), mReserved(0), mSize(0)
 	{
-		arr = new T[0];
 	}
 
 	Array(unsigned int v)

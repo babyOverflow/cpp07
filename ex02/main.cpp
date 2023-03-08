@@ -4,7 +4,7 @@
 #include "Array.h"
 
 #define MAX_VAL 750
-int main(int, char**)
+int test()
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
@@ -17,6 +17,7 @@ int main(int, char**)
     }
     //SCOPE
     {
+        Array<int> tmp2;
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
@@ -53,4 +54,9 @@ int main(int, char**)
     }
     delete [] mirror;//
     return 0;
+}
+int main()
+{
+    test();
+    // system("leaks xCast");
 }
