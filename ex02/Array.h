@@ -5,17 +5,17 @@ class Array
 {
 public:
 	Array()
-		: arr(new T[0]), mReserved(0), mSize(0)
+		: arr(new T[0]), mReserved(0)
 	{
 	}
 
 	Array(unsigned int v)
-		: arr(new T[v]), mReserved(v), mSize(v)
+		: arr(new T[v]), mReserved(v)
 	{
 	}
 
 	Array(const Array<T>& other)
-		: arr(new T[other.mReserved]), mReserved(other.mReserved), mSize(other.mSize)
+		: arr(new T[other.mReserved]), mReserved(other.mReserved)
 	{
 		for (unsigned int i = 0; i < mReserved; ++i)
 		{
@@ -28,7 +28,6 @@ public:
 		delete [] arr;
 		arr = new T[other.mReserved];
 		mReserved = other.mReserved;
-		mSize = other.mSize;
 		for (unsigned int i = 0; i < mReserved; ++i)
 		{
 			arr[i] = other.arr[i];
@@ -48,15 +47,11 @@ public:
 			return arr[idx];
 	}
 
-	// T operator[](unsigned int idx) const
-	// {
-	// 	if (idx >= mReserved)
-	// 		throw std::exception();
-	// 	else
-	// 		return arr[idx];
-	// }
+	unsigned int size()
+	{
+		return mReserved;
+	}
 private:
 	T* arr;
 	unsigned int mReserved;
-	unsigned int mSize;
 };
